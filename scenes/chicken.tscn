@@ -1,0 +1,16 @@
+[gd_scene format=3 uid="uid://b2f7atwkj6foe"]
+
+[ext_resource type="Script" uid="uid://g30aku8nx7pd" path="res://scripts/chicken.gd" id="1_1yv3s"]
+[ext_resource type="Texture2D" uid="uid://bv0my1r0l7lvx" path="res://assets/chicken.png" id="1_8lku0"]
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_h62h1"]
+radius = 7.0
+
+[node name="Chicken" type="CharacterBody2D" unique_id=644403288]
+script = ExtResource("1_1yv3s")
+
+[node name="Sprite2D" type="Sprite2D" parent="." unique_id=1338003999]
+texture = ExtResource("1_8lku0")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="." unique_id=2145471016]
+shape = SubResource("CircleShape2D_h62h1")

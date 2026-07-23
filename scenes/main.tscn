@@ -1,3 +1,15 @@
 [gd_scene format=3 uid="uid://cial0wtyb0la2"]
 
+[ext_resource type="Script" uid="uid://bd7ffplvt33em" path="res://scripts/main.gd" id="1_o5qli"]
+
 [node name="Main" type="Node2D" unique_id=1871745674]
+script = ExtResource("1_o5qli")
+
+[node name="Camera2D" type="Camera2D" parent="." unique_id=1704109450]
+
+[node name="ChickenSpawns" type="Node2D" parent="." unique_id=1128028490]
+
+[node name="Marker2D" type="Marker2D" parent="ChickenSpawns" unique_id=1677296070]
+position = Vector2(459, -260)
+
+[node name="Chickens" type="Node2D" parent="." unique_id=437765731]
