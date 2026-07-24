@@ -1,0 +1,8 @@
+[gd_scene format=3 uid="uid://bcc3sdkfb1cfl"]
+
+[ext_resource type="Texture2D" uid="uid://bo87nynkgvohg" path="res://assets/target_cursor.png" id="1_6fubg"]
+[ext_resource type="Script" uid="uid://dofcoryixy60d" path="res://scripts/target_marker.gd" id="2_3qnoh"]
+
+[node name="TargetMarker" type="Sprite2D" unique_id=2087229108]
+texture = ExtResource("1_6fubg")
+script = ExtResource("2_3qnoh")

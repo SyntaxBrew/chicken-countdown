@@ -1,7 +1,6 @@
 [gd_scene format=3 uid="uid://cial0wtyb0la2"]
 
 [ext_resource type="Script" uid="uid://bd7ffplvt33em" path="res://scripts/main.gd" id="1_o5qli"]
-[ext_resource type="PackedScene" uid="uid://bcc3sdkfb1cfl" path="res://scenes/target_marker.tscn" id="2_0wfyh"]
 
 [node name="Main" type="Node2D" unique_id=1871745674]
 script = ExtResource("1_o5qli")
@@ -20,7 +19,3 @@ position = Vector2(459, -260)
 [node name="Effects" type="Node2D" parent="." unique_id=1203299015]
 
 [node name="Projectiles" type="Node2D" parent="." unique_id=2041302303]
-
-[node name="TargetCursor" parent="." unique_id=2087229108 instance=ExtResource("2_0wfyh")]
-visible = false
-scale = Vector2(4, 4)

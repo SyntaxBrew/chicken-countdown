@@ -1,6 +1,8 @@
 extends CharacterBody2D
 class_name Chicken
 
+@onready var sprite: Sprite2D = $Sprite2D
+
 @export var speed: float = 4
 
 var move_target
@@ -11,6 +13,11 @@ func _ready() -> void:
 func _process(delta: float) -> void:
 	if move_target != null:
 		move_towards(move_target)
+
+		if move_target.x < self.position.x:
+			sprite.flip_h = true
+		else:
+			sprite.flip_h = false
 	
 func move_towards(target_pos: Vector2) -> void:
 	var direction = (target_pos - self.position).normalized()
