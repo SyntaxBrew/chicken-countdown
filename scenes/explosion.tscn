@@ -1,0 +1,45 @@
+[gd_scene format=3 uid="uid://cylylh0bdc7bn"]
+
+[ext_resource type="Script" uid="uid://obba8ht2q5n6" path="res://scripts/explosion.gd" id="1_17npe"]
+
+[sub_resource type="Gradient" id="Gradient_3oo6d"]
+colors = PackedColorArray(1, 0.55828476, 0.08553017, 1, 0.95032746, 0.5573335, 0.46470803, 1)
+
+[sub_resource type="GradientTexture1D" id="GradientTexture1D_nfeox"]
+gradient = SubResource("Gradient_3oo6d")
+
+[sub_resource type="Curve" id="Curve_3oo6d"]
+_data = [Vector2(0, 1), 0.0, 0.0, 0, 0, Vector2(1, 0), 0.0, 0.0, 0, 0]
+point_count = 2
+
+[sub_resource type="CurveTexture" id="CurveTexture_yntmo"]
+curve = SubResource("Curve_3oo6d")
+
+[sub_resource type="ParticleProcessMaterial" id="ParticleProcessMaterial_h62h1"]
+particle_flag_disable_z = true
+spread = 180.0
+initial_velocity_min = 6.0
+initial_velocity_max = 24.0
+gravity = Vector3(0, 0, 0)
+scale_max = 2.0
+scale_curve = SubResource("CurveTexture_yntmo")
+color_ramp = SubResource("GradientTexture1D_nfeox")
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_h62h1"]
+radius = 50.0
+
+[node name="Explosion" type="Area2D" unique_id=930423571]
+script = ExtResource("1_17npe")
+
+[node name="GPUParticles2D" type="GPUParticles2D" parent="." unique_id=2102679869]
+scale = Vector2(6.085, 6.085)
+emitting = false
+amount = 64
+lifetime = 0.5
+one_shot = true
+explosiveness = 1.0
+randomness = 1.0
+process_material = SubResource("ParticleProcessMaterial_h62h1")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="." unique_id=721679358]
+shape = SubResource("CircleShape2D_h62h1")

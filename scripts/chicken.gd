@@ -10,7 +10,6 @@ func _ready() -> void:
 
 func _process(delta: float) -> void:
 	if move_target != null:
-
 		move_towards(move_target)
 	
 func move_towards(target_pos: Vector2) -> void:
