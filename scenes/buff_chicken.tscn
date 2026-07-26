@@ -1,10 +1,10 @@
-[gd_scene format=3 uid="uid://b2f7atwkj6foe"]
+[gd_scene format=3 uid="uid://q345ek0046iw"]
 
-[ext_resource type="Script" uid="uid://g30aku8nx7pd" path="res://scripts/chicken.gd" id="1_1yv3s"]
-[ext_resource type="Texture2D" uid="uid://b0qg1p7pwtfih" path="res://assets/chicken1.png" id="2_1yv3s"]
-[ext_resource type="Texture2D" uid="uid://cifmua7hcrrnv" path="res://assets/chicken2.png" id="3_rc7ma"]
-[ext_resource type="Texture2D" uid="uid://bv0my1r0l7lvx" path="res://assets/chicken.png" id="4_0du8g"]
-[ext_resource type="Texture2D" uid="uid://c3gsfw8hrwliw" path="res://assets/chickenhd.png" id="5_0du8g"]
+[ext_resource type="Script" uid="uid://ds2clntl2le5e" path="res://scripts/buff_chicken.gd" id="1_126by"]
+[ext_resource type="Texture2D" uid="uid://87ryg05fr4ke" path="res://assets/buff_chicken1.png" id="1_v2x3f"]
+[ext_resource type="Texture2D" uid="uid://cx82gkuhoch1r" path="res://assets/buff_chicken2.png" id="2_126by"]
+[ext_resource type="Texture2D" uid="uid://4u4skacvxuf0" path="res://assets/buff_chicken3.png" id="3_pkcux"]
+[ext_resource type="Texture2D" uid="uid://vwoa3ssrx88i" path="res://assets/buff_chicken4.png" id="4_ta6j4"]
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_h62h1"]
 
@@ -12,13 +12,16 @@
 animations = [{
 "frames": [{
 "duration": 1.0,
-"texture": ExtResource("2_1yv3s")
+"texture": ExtResource("1_v2x3f")
 }, {
 "duration": 1.0,
-"texture": ExtResource("3_rc7ma")
+"texture": ExtResource("2_126by")
 }, {
 "duration": 1.0,
-"texture": ExtResource("4_0du8g")
+"texture": ExtResource("3_pkcux")
+}, {
+"duration": 1.0,
+"texture": ExtResource("4_ta6j4")
 }],
 "loop": 1,
 "name": &"default",
@@ -31,27 +34,23 @@ bg_color = Color(0.1751203, 0.13238874, 0.12783736, 1)
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_bti8l"]
 bg_color = Color(0.09493842, 0.9632482, 0.57782775, 1)
 
-[node name="Chicken" type="CharacterBody2D" unique_id=644403288]
-script = ExtResource("1_1yv3s")
+[node name="BuffChicken" type="CharacterBody2D" unique_id=644403288]
+script = ExtResource("1_126by")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="." unique_id=2145471016]
 shape = SubResource("CircleShape2D_h62h1")
 
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="." unique_id=2136405245]
+scale = Vector2(1.295, 1.295)
 sprite_frames = SubResource("SpriteFrames_h62h1")
-frame = 1
-frame_progress = 0.6404088
-
-[node name="Sprite2D" type="Sprite2D" parent="." unique_id=1923864609]
-visible = false
-scale = Vector2(0.75, 0.75)
-texture = ExtResource("5_0du8g")
+autoplay = "default"
+frame_progress = 0.65521044
 
 [node name="HealthBar" type="ProgressBar" parent="." unique_id=132890998]
 offset_left = -8.0
-offset_top = -11.0
+offset_top = -18.0
 offset_right = 7.0
-offset_bottom = -9.0
+offset_bottom = -16.0
 theme_override_styles/background = SubResource("StyleBoxFlat_0du8g")
 theme_override_styles/fill = SubResource("StyleBoxFlat_bti8l")
 show_percentage = false

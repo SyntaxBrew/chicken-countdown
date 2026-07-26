@@ -2,7 +2,7 @@ extends Area2D
 class_name RocketProjectile
 
 @onready var sprite: Sprite2D = $Sprite2D
-@export var speed: float = 100
+@export var speed: float = 500
 
 var start_pos: Vector2
 var target_destination: Vector2
@@ -10,7 +10,7 @@ var control_pos: Vector2
 var prev_pos: Vector2
 
 var elapsed: float
-var duration: float = 1
+var duration: float
 
 signal on_hit
 
@@ -23,8 +23,9 @@ func _process(delta: float) -> void:
 func set_target_destination(target_pos: Vector2) -> void:
 	start_pos = self.position
 	target_destination = target_pos
-	control_pos = (target_pos - start_pos) / 2 - Vector2(0, 200)
+	control_pos = (target_pos - start_pos) / 2 - Vector2(20, 200)
 	self.prev_pos = start_pos
+	duration = 1
 	
 func _physics_process(delta: float):
 	if target_destination != null:

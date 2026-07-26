@@ -1,0 +1,114 @@
+[gd_scene format=3 uid="uid://cial0wtyb0la2"]
+
+[ext_resource type="Script" uid="uid://bd7ffplvt33em" path="res://scripts/main.gd" id="1_o5qli"]
+[ext_resource type="PackedScene" uid="uid://bcc3sdkfb1cfl" path="res://scenes/target_marker.tscn" id="2_0wfyh"]
+[ext_resource type="PackedScene" uid="uid://cv7ajdf18hqql" path="res://scenes/escape_rocket.tscn" id="3_sugp2"]
+[ext_resource type="Texture2D" uid="uid://b0qg1p7pwtfih" path="res://assets/chicken1.png" id="4_tbgi4"]
+[ext_resource type="Script" uid="uid://fojwhnjxty48" path="res://scripts/texture_rect.gd" id="5_tefeu"]
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_sugp2"]
+bg_color = Color(0.1751203, 0.13238874, 0.12783736, 1)
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_jyhfs"]
+bg_color = Color(0.88399595, 0.0017646658, 0.35710558, 1)
+
+[node name="Main" type="Node2D" unique_id=1871745674]
+script = ExtResource("1_o5qli")
+
+[node name="Camera2D" type="Camera2D" parent="." unique_id=1704109450]
+
+[node name="ChickenSpawns" type="Node2D" parent="." unique_id=1128028490]
+
+[node name="Marker2D" type="Marker2D" parent="ChickenSpawns" unique_id=1677296070]
+position = Vector2(459, -260)
+
+[node name="Chickens" type="Node2D" parent="." unique_id=437765731]
+
+[node name="BaseMarker" type="Marker2D" parent="." unique_id=1358524609]
+
+[node name="Effects" type="Node2D" parent="." unique_id=1203299015]
+
+[node name="Projectiles" type="Node2D" parent="." unique_id=2041302303]
+
+[node name="TargetCursor" parent="." unique_id=2087229108 instance=ExtResource("2_0wfyh")]
+visible = false
+scale = Vector2(4, 4)
+
+[node name="EscapeRocket" parent="." unique_id=141716090 instance=ExtResource("3_sugp2")]
+scale = Vector2(4, 4)
+
+[node name="CanvasLayer" type="CanvasLayer" parent="." unique_id=1991216887]
+
+[node name="EscapeRocketHealthLabel" type="ProgressBar" parent="CanvasLayer" unique_id=236058857]
+offset_left = 5.0
+offset_top = 6.0
+offset_right = 262.0
+offset_bottom = 28.0
+theme_override_styles/background = SubResource("StyleBoxFlat_sugp2")
+theme_override_styles/fill = SubResource("StyleBoxFlat_jyhfs")
+show_percentage = false
+
+[node name="DeathOverlay" type="ColorRect" parent="CanvasLayer" unique_id=667492743]
+visible = false
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+color = Color(0, 0, 0, 0.6392157)
+
+[node name="Label" type="Label" parent="CanvasLayer/DeathOverlay" unique_id=2113873558]
+layout_mode = 0
+offset_left = 44.0
+offset_top = 211.0
+offset_right = 1122.0
+offset_bottom = 327.0
+theme_override_font_sizes/font_size = 43
+text = "THE CHICKENS DESTROYED YOUR ROCKET"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="TextureRect" type="TextureRect" parent="CanvasLayer/DeathOverlay" unique_id=1309142368]
+layout_mode = 0
+offset_left = 468.0
+offset_top = 342.0
+offset_right = 660.0
+offset_bottom = 534.0
+texture = ExtResource("4_tbgi4")
+script = ExtResource("5_tefeu")
+
+[node name="WinOverlay" type="ColorRect" parent="CanvasLayer" unique_id=1008410129]
+visible = false
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+color = Color(0, 0, 0, 0.6392157)
+
+[node name="Label" type="Label" parent="CanvasLayer/WinOverlay" unique_id=1284835364]
+layout_mode = 0
+offset_left = 44.0
+offset_top = 211.0
+offset_right = 1122.0
+offset_bottom = 327.0
+theme_override_font_sizes/font_size = 43
+text = "YOU ESCAPED EARTH!"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="TextureRect" type="TextureRect" parent="CanvasLayer/WinOverlay" unique_id=1332751136]
+layout_mode = 0
+offset_left = 489.0
+offset_top = 436.0
+offset_right = 660.0
+offset_bottom = 503.0
+texture = ExtResource("4_tbgi4")
+script = ExtResource("5_tefeu")
+
+[node name="EscapeRocketLaunchLabel" type="Label" parent="CanvasLayer" unique_id=338620176]
+offset_left = 5.0
+offset_top = 36.0
+offset_right = 45.0
+offset_bottom = 59.0
+text = "Escape Rocket Launching In: 0s "

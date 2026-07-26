@@ -1,0 +1,33 @@
+[gd_scene format=3 uid="uid://sb1bfyterb4f"]
+
+[ext_resource type="Script" uid="uid://drlt7wnof4mur" path="res://scripts/rocket_silo.gd" id="1_y225a"]
+[ext_resource type="Texture2D" uid="uid://f4ltjobrsuv7" path="res://assets/rocket_silo.png" id="2_31tfc"]
+[ext_resource type="AudioStream" uid="uid://cs2yf75xi1mpk" path="res://assets/whoosh.mp3" id="3_75vt7"]
+[ext_resource type="FontFile" uid="uid://dl02t2j8n5rbb" path="res://assets/Minecraft.ttf" id="3_t4ve7"]
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_h62h1"]
+radius = 25.019993
+
+[node name="RocketSilo" type="Area2D" unique_id=1150207147]
+script = ExtResource("1_y225a")
+
+[node name="Sprite2D" type="Sprite2D" parent="." unique_id=795781869]
+texture = ExtResource("2_31tfc")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="." unique_id=1414479012]
+shape = SubResource("CircleShape2D_h62h1")
+
+[node name="Label" type="Label" parent="." unique_id=1338424863]
+visible = false
+offset_left = -19.0
+offset_top = -41.0
+offset_right = 21.0
+offset_bottom = -18.0
+theme_override_fonts/font = ExtResource("3_t4ve7")
+theme_override_font_sizes/font_size = 16
+text = "0.0s"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="AudioStreamPlayer2D" type="AudioStreamPlayer2D" parent="." unique_id=1008803992]
+stream = ExtResource("3_75vt7")

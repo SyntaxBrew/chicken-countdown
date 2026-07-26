@@ -11,7 +11,8 @@ func _process(delta: float) -> void:
 	pass
 	
 func _draw():
-	draw_circle(Vector2.ZERO, collision_shape.shape.radius, Color(1, 0, 0, 0.3))
+	pass
+	#draw_circle(Vector2.ZERO, collision_shape.shape.radius, Color(1, 0, 0, 0.3))
 	
 func get_chickens_in_blast_radius() -> Array:
 	var chickens = []

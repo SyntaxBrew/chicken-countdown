@@ -1,0 +1,53 @@
+[gd_scene format=3 uid="uid://ng47tc3msyi4"]
+
+[ext_resource type="Script" uid="uid://b8yystrjn1m2m" path="res://scripts/chicken_runner.gd" id="1_lbmyc"]
+[ext_resource type="Texture2D" uid="uid://dntikyusys7o5" path="res://assets/chicken_runner1.png" id="2_2bqhd"]
+[ext_resource type="Texture2D" uid="uid://bo7ql01duqql3" path="res://assets/chicken_runner2.png" id="3_we6db"]
+[ext_resource type="Texture2D" uid="uid://n4sqs0l0yp8h" path="res://assets/chicken_runner3.png" id="4_ejtbu"]
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_h62h1"]
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_v2x3f"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("2_2bqhd")
+}, {
+"duration": 1.0,
+"texture": ExtResource("3_we6db")
+}, {
+"duration": 1.0,
+"texture": ExtResource("4_ejtbu")
+}],
+"loop": 1,
+"name": &"default",
+"speed": 5.0
+}]
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_0du8g"]
+bg_color = Color(0.1751203, 0.13238874, 0.12783736, 1)
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_bti8l"]
+bg_color = Color(0.09493842, 0.9632482, 0.57782775, 1)
+
+[node name="ChickenRunner" type="CharacterBody2D" unique_id=644403288]
+script = ExtResource("1_lbmyc")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="." unique_id=2145471016]
+shape = SubResource("CircleShape2D_h62h1")
+
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="." unique_id=2136405245]
+scale = Vector2(1.295, 1.295)
+sprite_frames = SubResource("SpriteFrames_v2x3f")
+autoplay = "default"
+frame_progress = 0.257639
+speed_scale = 1.5
+
+[node name="HealthBar" type="ProgressBar" parent="." unique_id=132890998]
+offset_left = -8.0
+offset_top = -18.0
+offset_right = 7.0
+offset_bottom = -16.0
+theme_override_styles/background = SubResource("StyleBoxFlat_0du8g")
+theme_override_styles/fill = SubResource("StyleBoxFlat_bti8l")
+show_percentage = false

@@ -1,0 +1,17 @@
+[gd_scene format=3 uid="uid://cv7ajdf18hqql"]
+
+[ext_resource type="Texture2D" uid="uid://c51hs418alwsu" path="res://assets/escape_rocket.png" id="1_ak2em"]
+[ext_resource type="Script" uid="uid://gc7tnqavblfu" path="res://scripts/escape_rocket.gd" id="1_pqlel"]
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_jyhfs"]
+radius = 8.0
+
+[node name="EscapeRocket" type="Area2D" unique_id=141716090]
+script = ExtResource("1_pqlel")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="." unique_id=250357067]
+position = Vector2(0, 6)
+shape = SubResource("CircleShape2D_jyhfs")
+
+[node name="Sprite2D" type="Sprite2D" parent="." unique_id=494277318]
+texture = ExtResource("1_ak2em")
